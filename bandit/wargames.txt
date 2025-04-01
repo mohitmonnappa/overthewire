@@ -1,0 +1,129 @@
+level1
+to display contents of a dashed file:
+cat < - or cat ./-
+
+extra: to create a dashed file:
+touch ./-
+
+
+level2
+for spaces in the filename, enclose it with quotes
+
+
+level3
+use ls -la to show all files including hidden ones
+
+
+level4
+basic: cat the entire directory because only one file is human readable
+
+to find which file has ascii text in the entire directory: find all files and pipe it to file. 
+we've to use xargs before file. this will give the info about the files
+then we can use grep "ASCII" to filter out human readable files
+
+
+
+level5
+basic: find the entire directory with size parameter set to 1033 bytes, then pip it to
+file which checks for dashed file using -- and then pipe it to grep for ascii text
+
+it works only with the file size that is find . -size 1033c (bytes is represented as c)
+
+full command:
+find . -size 1033c | xargs file -- * | grep  "ASCII"
+
+
+level6
+basic: go to root directory and find the entire directory with -group, -user and -size
+pipe it to file and pipe it to grep to ascii text
+full command:
+find . -group bandit6 -user bandit7 -size 33c -type f | xargs file * | grep "ASCII"
+
+
+level7
+just cat the file and pass it to grep with the word millionth
+cat data.txt | grep "millionth"
+
+
+level8
+use sort to sort the words in dictionary order so that repeated words will be together
+next use uniq to see the unique lines and count the number of words
+uniq -u will directly give the unique word in the file
+or you can display the count and grep 1 from there
+
+simplest: 
+cat data.txt | sort -f -d | uniq -u
+-f is to ignore the case of the letter and -d is for dictionary ordering
+
+second method:
+cat data.txt | sort -f -d | uniq -c | grep " 1 "
+-c is to display the count, ie no of times it has been repeated
+
+
+level9
+use strings to print human readable content from a file and pass it to grep with "=="(2 equals signs since a few is more that 1)
+strings data.txt | grep "=="
+
+
+level10
+use base64-d to decode the string
+cat data.txt | base64 -d
+
+
+level11
+to rotate the character use the tool tr
+to rotoate by 13 positions:
+cat file_name | tr 'a-z' 'n-za-m' | tr 'A-Z' 'N-ZA-M'
+first argument takes the input string format second takes the output format, which here, if a is rotated by 13 positions, it will be come n and goes till z and then starts over from a to m
+second pipe is for uppercase characters
+
+
+level12
+we have the hexdump in ascii
+not sure but i followed the mktemp -d and did all the changes in the tmp folder
+we need to reverse the hexdump. for this we use xxd -r
+xxd -r filename.txt newfile
+use the file command to get the file signature
+then use mv to rename to that extension
+for gzip --> .gz
+for tar --> .tar
+for bzip2 --> .bz2
+to uncompress:
+.gz --> gunzip filename
+.tar --> tar -x -f archivename
+.bz2 --> bzip2 filename
+
+
+level 13
+the private key is present in the home directory
+we need to use this to login as bandit14 using ssh
+the -i is to specify the private key
+we can just ssh -p 2220 bandit14@localhost -i sshkey.private to login
+info :  the permissions of the private key file should be 700 
+
+
+level 14
+while logged in as bandit14 use nc to send data
+nc localhost 30000 and enter level 14's password
+
+
+
+level 15
+use openssl with s_client to connect to the server
+first login and type
+openssl s_client -host localhost -port 300001
+
+level 16
+run nmap to see the services on the ports
+use the version argument and specify the port numbers
+nmap -sV -p 31000-32000
+
+then through ncat use ssl option and connect and submit the current level's pwd
+
+level 17
+use the diff to compare lines of two files
+diff --suppress-common-lines -i -y passwords.old passwords.new
+-i is to ignore cases and -y is to display side by side
+
+level 18
+
