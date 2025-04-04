@@ -131,4 +131,10 @@ ssh -l bandit18 bandit.labs.overthewire.org -p 2220 "cat readme"
 first use ls in quotes and we see readme file is present so just cat the readme file
 
 level19
+the setuid binary is set to bandit20's user, check the file type of given file.
+it says it is an executable so try running it, run it with the example
+the euid is set to bandit20, which means this gives the current user the priviges of the creator of the file, so just cat bandit20's password
+./bandit2-do cat /etc/bandit_pass/bandit20
+
+level20
 
