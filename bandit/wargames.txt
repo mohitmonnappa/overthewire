@@ -126,4 +126,9 @@ diff --suppress-common-lines -i -y passwords.old passwords.new
 -i is to ignore cases and -y is to display side by side
 
 level 18
+after logging in, the .bashrc files automatically logs you out instanstly so pass the command in quotes after the ssh query to execute commands before it logs you out.
+ssh -l bandit18 bandit.labs.overthewire.org -p 2220 "cat readme"
+first use ls in quotes and we see readme file is present so just cat the readme file
+
+level19
 
