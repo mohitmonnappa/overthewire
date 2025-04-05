@@ -145,6 +145,25 @@ after this we can run the binary with the port number that we gave the nc listen
 we need to start nc in server mode so -l and -p will be seperate flags
 echo "current_level_password" | nc -l -p 5555
 this will start the listener immediately, therefore background it, use the & (ampersand symbol)
-
 echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l -p 5555
 ./suconnect 5555
+
+level21
+go to the cron directory to see the cron jobs
+we get the path of the script that is being executed, cat the file to see what the script is doing
+it is reading the contents of the passwd file and redirecting it to a file in the /tmp directory.
+just cat the file
+cat /etc/cron.d/cronjob_bandit22
+cat /usr/bin/cronjob_bandit22.sh
+cat /tmp/whatever_file_the_above_command_gave
+
+level22
+print the shell script, since this will run as bandit23, whoami will give bandit23 so to get mytarget value just copy the command and replace myname with bandit23 so it will hash it with bandit23 as the user
+just go cat the output in the tmp folder.
+echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+cat /tmp/output_of_above_command
+
+
+
+
+
