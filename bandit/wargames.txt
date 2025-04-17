@@ -217,5 +217,13 @@ the password is the same as this level's password
 go into the folder and cat the README
 
 level28
+clone the repo go inside
+see the git log
+go to the commit using git checkout commit_hash
+and then git show
 
+level29
+
+
+level30
 
