@@ -211,4 +211,11 @@ use it
 get the password of bandit27: cat /etc/bandit_pass/bandit27
 
 level27
+we have to clone the repo so create a temp directory and clone it
+include port number 2220 after localhost:
+the password is the same as this level's password
+go into the folder and cat the README
+
+level28
+
 
