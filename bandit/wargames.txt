@@ -221,9 +221,37 @@ clone the repo go inside
 see the git log
 go to the commit using git checkout commit_hash
 and then git show
+or just git show commit_hash directly in a single line
 
 level29
-
+clone the repo and go inside
+there are multiple branches, check by:
+git branch -a
+to go to a branch: git checkout branch_name
+check dev branch
+once you switch to a branch the file contents will be of that branch
+so check the contents of the files
+here, readme file has the password
+cat README.md
 
 level30
+there is a feature called tag in git:
+Git tagging is a way to mark specific points in the history of the repository.
+to see tags: git tag
+to show the tag message:
+git show tag_name
+here:
+git tag
+git show secret
 
+level31
+here read the README.md i says we have to push a file named key.tx with the txt 'May I come in?'
+but the .gitignore file ignores .txt files
+so delete the .gitignore file and add the txt to key.txt
+then push it to master branch to get the password
+rm .gitignore
+cat > key.txt
+May I come in?
+^C
+git add .
+git push origin master 
