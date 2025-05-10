@@ -254,4 +254,24 @@ cat > key.txt
 May I come in?
 ^C
 git add .
-git push origin master 
+git push origin master
+
+level 32 
+in linux using printenv will give all the environment variables
+Some common that are good to know are:
+TERM -  current terminal emulation
+HOME - the path to home directory of currently logged in user
+LANG - current locales settings
+PATH - directory list to be searched when executing commands
+PWD - pathname of the current working directory
+SHELL/0 - the path of the current user’s shell (MOST IMPORTANT!!)
+USER - currently logged-in user
+any command is converted to uppercase and executed and there are no uppercase commands in linux, therefore, we need a way to start a normal terminal
+$0 is the shell path, run it
+run whoami, it is actually logged in as bandit33
+so take the password from bandit_pass file
+whoami
+cat etc/bandit_pass/bandit33
+
+level33
+
