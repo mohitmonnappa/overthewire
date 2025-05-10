@@ -274,4 +274,4 @@ whoami
 cat etc/bandit_pass/bandit33
 
 level33
-
+all levels solved!!
